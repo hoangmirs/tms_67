@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: "Training Management System"
+  header: "Training Management System"
+  help: "Help"
+  home: "Home"
+  about: "About"
+  login: "Login"
+  contact: "Contact"
+  welcome: "Welcome to the Training System"
+  login_now: "Login now"
+  description: "The Training Management System by Framgia"
+  contact_detail: "Contact the Ruby on Rails Tutorial about the sample app at the contact page."
+  help_detail: "Get help on the Training Management System at the Training Management System help section"
