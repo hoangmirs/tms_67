@@ -1,12 +1,32 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-default">
+  <div id="banner_wrapper">
+    <%= image_tag "banner.png" %>
+    <div id="banner_text_wrapper">
+      <h1 id="system_banner_text"><%= t("system_name").upcase %></h1>
+      <h2 id="system_banner_slogan"><%= t "slogan" %></h2>
+    </div>
+  </div>
   <div class="container">
-    <%= link_to (t "title"), root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to (t "home"), root_path %></li>
-        <li><%= link_to (t "help"), help_path %></li>
-        <li><%= link_to (t "login"), "#" %></li>
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to root_path, title: t("home"), id: "logo" do %>
+            <%= image_tag "logo_F.png", class: "img-circle" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to t("help"), help_path %>
+        </li>
+        <li>
+          <%= link_to t("users") %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <div class="login_wrapper">
+          <%= link_to t("login"), "#", class: "btn btn-default" %>
+        </div>
       </ul>
     </nav>
   </div>
 </header>
+

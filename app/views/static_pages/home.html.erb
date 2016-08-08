@@ -1,5 +1,8 @@
-<div class="center jumbotron">
-  <h1><%= t "welcome" %></h1>
-  <%= link_to (t "login_now"), "#", class: "btn btn-lg btn-primary" %>
+<div id="home_message_wrapper">
+  <div class="row">
+    <div class="col-md-12 welcome_message">
+      <h1><%= t "welcome_message" %></h1>
+      <h2><%= link_to t("login"), "#", id: "btn_login" %> <%= t "login_guide" %></h2>
+    </div>
+  </div>
 </div>
-
