@@ -20,12 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  system_name: "Framgia Training System"
+  slogan: "Train for results - not for hours"
+  welcome_message: "Welcome to Framgia Training System!"
+  login: "Login"
+  login_guide: "to start using our system"
+  home: "Home"
+  help: "Help"
+  users: "Users"
   title: "Training Management System"
   header: "Training Management System"
-  help: "Help"
-  home: "Home"
   about: "About"
-  login: "Login"
   contact: "Contact"
   welcome: "Welcome to the Training System"
   login_now: "Login now"

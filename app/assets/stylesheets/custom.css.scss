@@ -3,10 +3,6 @@
 
 /* universal */
 
-body {
-  padding-top: 60px;
-}
-
 section {
   overflow: auto;
 }
@@ -38,7 +34,6 @@ h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
   color: #777;
 }
@@ -64,31 +59,51 @@ p {
   text-decoration: none;
 }
 
-footer {
+.footer{
+  position: absolute;
+  bottom: 0;
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a {
   color: #555;
+
+  a{
+    color: #555;
+
+    &:hover{
+      color: #222;
+    }
+  }
+
+  small {
+    float: left;
+    font-size: 14px;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
 
-footer a:hover {
-  color: #222;
+@media (min-width: 768px) {
+  .footer {
+    width: 720px;
+  }
 }
 
-footer small {
-  float: left;
+@media (min-width: 992px) {
+  .footer {
+    width: 940px;
+  }
 }
 
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
+@media (min-width: 1200px) {
+  .footer {
+    width: 1140px;
+  }
 }
