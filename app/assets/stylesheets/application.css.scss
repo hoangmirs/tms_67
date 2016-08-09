@@ -77,6 +77,10 @@ h2 {
   padding-top: 14px;
 }
 
+header{
+  z-index: 1;
+}
+
 #home_message_wrapper {
   padding: 10px;
   background: #00b5ec;
@@ -85,8 +89,6 @@ h2 {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: -1;
-  margin-top: -40px;
 
   h1 {
     color: white;
@@ -118,4 +120,9 @@ h2 {
     top: 60%;
     position: absolute;
   }
+}
+
+div.pagination{
+  text-align: center;
+  width: 100%;
 }

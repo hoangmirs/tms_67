@@ -14,8 +14,14 @@
             <%= image_tag "logo_F.png", class: "img-circle" %>
           <% end %>
         </li>
+        
+        <% if current_user.admin? %>
+          <li>
+            <%= link_to t("help"), help_path %>
+          </li>
+        <% end %>
         <li>
-          <%= link_to t("help"), help_path %>
+          <%= link_to t("users_text"), admin_users_path %>
         </li>
       </ul>
       <ul class="nav navbar-nav pull-right">

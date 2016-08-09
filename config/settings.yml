@@ -6,3 +6,5 @@ role:
   admin: "admin"
   supervisor: "supervisor"
   trainee: "trainee"
+pagination:
+  size: 15

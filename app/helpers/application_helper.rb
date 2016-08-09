@@ -14,4 +14,11 @@ module ApplicationHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag gravatar_url, alt: user.name, class: "gravatar"
   end
+
+  def get_pagination_element_index collection, element,
+    page_elements_count = Settings.pagination.size
+
+    collection.index(element) + 1 +
+      (collection.current_page - 1) * page_elements_count
+  end
 end

@@ -2,6 +2,11 @@ class Admin::UsersController < ApplicationController
   before_action :logged_in_user, :verify_admin
   before_action :load_user, only: [:show, :edit, :update]
 
+  def index
+    @users = User.order("created_at DESC")
+      .paginate page: params[:page], per_page: Settings.pagination.size
+  end
+
   def show
   end
 
