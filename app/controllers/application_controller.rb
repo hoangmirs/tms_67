@@ -19,6 +19,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_admin
+    unless current_user.admin?
+      flash[:notice] = t "flash.notice.permission_denied"
+      redirect_to root_url
+    end
+  end
+
+  def correct_user
+    redirect_to root_url unless current_user? @user
+  end
+
   def render_404
     render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end

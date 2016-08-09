@@ -43,6 +43,19 @@ en:
   help_detail: "Get help on the Training Management System at the Training Management System help section"
   application:
     login_require: "Please login"
+  flash:
+    success:
+      login: "Login successfully"
+      create_user: "Create user successfully!"
+      update_user: "Update user successfully!"
+      destroy_user: "Delete user successfully!"
+    error:
+      login_require: "Please login"
+    alert:
+      login: "Login error"
+    notice:
+      login: "Login error"
+      permission_denied: "Permission denied!"
   sessions:
     new:
       title: "Log in"
@@ -63,3 +76,14 @@ en:
     update:
       update_success: "Profile updated"
     not_found: "User not found"
+  permission_denied: "Permission denied"
+  admin:
+    users:
+      new:
+        title: "Create new user"
+      form:
+        submit_button: "Submit"
+      edit:
+        title: "Edit user"
+      show:
+        edit_button: "Edit this user"

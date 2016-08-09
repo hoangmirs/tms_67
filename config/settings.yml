@@ -1,0 +1,8 @@
+avatar:
+  size: 50
+session:
+  remember_value: "1"
+role:
+  admin: "admin"
+  supervisor: "supervisor"
+  trainee: "trainee"
