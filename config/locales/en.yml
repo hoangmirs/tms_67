@@ -27,13 +27,39 @@ en:
   login_guide: "to start using our system"
   home: "Home"
   help: "Help"
-  users: "Users"
+  users_text: "Users"
   title: "Training Management System"
   header: "Training Management System"
   about: "About"
+  logout: "Logout"
   contact: "Contact"
   welcome: "Welcome to the Training System"
   login_now: "Login now"
+  account: "Account"
+  view_profile: "Profile"
+  edit_profile: "Edit profile"
   description: "The Training Management System by Framgia"
   contact_detail: "Contact the Ruby on Rails Tutorial about the sample app at the contact page."
   help_detail: "Get help on the Training Management System at the Training Management System help section"
+  application:
+    login_require: "Please login"
+  sessions:
+    new:
+      title: "Log in"
+      login_button: "Log in"
+      remember_text: "Remember me on this computer"
+    create:
+      login_success: "Log in successful"
+      login_invalid: "Invalid email/password combination"
+    login_require: "Please login"
+  users:
+    edit:
+      change_button: "Change"
+      title: "Edit user"
+      save_button: "Save changes"
+      header_text: "Update your profile"
+    show:
+      edit_button: "Edit"
+    update:
+      update_success: "Profile updated"
+    not_found: "User not found"
