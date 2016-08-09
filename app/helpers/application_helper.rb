@@ -1,6 +1,6 @@
 module ApplicationHelper
   def full_title page_title = ""
-    base_title = I18n.t "title"
+    base_title = t "title"
     if page_title.empty?
       base_title
     else
@@ -8,7 +8,7 @@ module ApplicationHelper
     end
   end
 
-  def gravatar_for user, options = {size: 80}
+  def gravatar_for user, options = {size: Settings.avatar.size}
     gravatar_id = Digest::MD5::hexdigest user.email.downcase
     size = options[:size]
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"

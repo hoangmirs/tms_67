@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by email: params[:session][:email].downcase
     if user && user.authenticate(params[:session][:password])
-      flash[:success] = I18n.t "sessions.create.login_success"
+      flash[:success] = I18n.t "flash.success.login"
       log_in user
-      params[:session][:remember_me] == "1" ? remember(user) : forget(user)
+      params[:session][:remember_me] == Settings.session.remember_value ? remember(user) : forget(user)
       redirect_to user
     else
-      flash.now[:danger] = I18n.t "sessions.create.login_invalid"
+      flash.now[:notice] = I18n.t "sessions.create.login_invalid"
       render :new
     end
   end
