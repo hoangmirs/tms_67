@@ -50,6 +50,7 @@ en:
       create_user: "Create user successfully!"
       update_user: "Update user successfully!"
       destroy_user: "Delete user successfully!"
+      create_subject: "Create subject successfully!"
     error:
       login_require: "Please login"
     danger:
@@ -105,6 +106,18 @@ en:
       show:
         edit_button: "Edit this user"
         send_mail: "Send mail"
+    subjects:
+      form:
+        submit_button: "Submit"
+      remove_task: "Remove task"
+      new_task: "New task"
+      name_task: "Name Task"
+      list_of_subject: List subject
+      create_subject_title: "Create new subject"
+      id: "Id"
+      name: "name"
+      infruction: "Infructions"
+      created_at: "Create date"
   time_format: "%c"
   error_messages: "The form contains %{plural}."
   error_text: "error"

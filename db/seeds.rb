@@ -11,10 +11,3 @@ User.create!(name: "Hoang Mirs",
   password_confirmation: "123456",
   role: 2)
 
-20.times do |n|
-  name  = Faker::Name.name
-  email = "trainee-#{n+1}@gmail.com"
-  password = "111111"
-  User.create!(name: name, email: email, password: password,
-    password_confirmation: password, role: 0)
-end
