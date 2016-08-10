@@ -1,5 +1,6 @@
 avatar:
   size: 50
+  large_size: 100
 session:
   remember_value: "1"
 role:
