@@ -1,3 +1,14 @@
+<div class="panel-header">
+  <span class="pull-right">
+    <% unless current_user.trainee? %>
+      <%= link_to new_admin_user_path,
+        class: "btn btn-success" do %>
+        <i class="glyphicon glyphicon-new"></i>
+        <%= t "admin.users.index.btn_New" %>
+      <% end %>
+    <% end %>
+  </span>
+</div>
 <div id="list-users">
   <%= render "user_all" %>
   <%= will_paginate %>

@@ -52,8 +52,9 @@ en:
       destroy_user: "Delete user successfully!"
     error:
       login_require: "Please login"
-    alert:
+    danger:
       login: "Login error"
+      destroy_user: "Delete user unsuccessfully!"
     notice:
       login: "Login error"
       permission_denied: "Permission denied!"
@@ -93,6 +94,8 @@ en:
         txt_Action: "Action"
         btn_Edit: "Edit"
         btn_Delete: "Delete"
+        btn_View: "View"
+        btn_New: "Create new user"
       new:
         title: "Create new user"
       form:
@@ -101,4 +104,7 @@ en:
         title: "Edit user"
       show:
         edit_button: "Edit this user"
+        send_mail: "Send mail"
   time_format: "%c"
+  error_messages: "The form contains %{plural}."
+  error_text: "error"
