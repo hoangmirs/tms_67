@@ -5,6 +5,12 @@
   <td><%= user.role.capitalize %></td>
   <td><%= user.created_at.strftime(t "time_format") %></td>
   <td class="center">
+    <%= link_to admin_user_path(user) do %>
+      <span class="glyphicon glyphicon-search"></span>
+      <%= t "admin.users.index.btn_View" %>
+    <% end %>
+  </td>
+  <td class="center">
     <%= link_to edit_admin_user_path(user) do %>
       <span class="glyphicon glyphicon-edit"></span>
       <%= t "admin.users.index.btn_Edit" %>

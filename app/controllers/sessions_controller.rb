@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == Settings.session.remember_value ? remember(user) : forget(user)
       redirect_to user
     else
-      flash.now[:notice] = I18n.t "sessions.create.login_invalid"
+      flash.now[:danger] = I18n.t "sessions.create.login_invalid"
       render :new
     end
   end

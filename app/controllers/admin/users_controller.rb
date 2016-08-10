@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :load_user, only: [:show, :edit, :update]
+  before_action :load_user, except: [:index, :create, :new]
 
   def index
     @users = User.order("created_at DESC")
@@ -36,12 +36,21 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t "flash.success.destroy_user"
+    else
+      flash[:danger] = t "flash.danger.destroy_user"
+    end
+    redirect_to admin_users_path
+  end
+
   private
   def load_user
     @user = User.find_by id: params[:id]
     unless @user
-      flash[:error] = I18n.t "users.not_found"
-      redirect_to root_url
+      flash[:danger] = I18n.t "users.not_found"
+      redirect_to admin_users_path
     end
   end
 
