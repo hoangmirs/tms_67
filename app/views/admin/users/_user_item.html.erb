@@ -1,0 +1,24 @@
+<tr>
+  <td class="center"><%= get_pagination_element_index @users, user %></td>
+  <td><%= link_to user.name, user %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role.capitalize %></td>
+  <td><%= user.created_at.strftime(t "time_format") %></td>
+  <td class="center">
+    <%= link_to edit_admin_user_path(user) do %>
+      <span class="glyphicon glyphicon-edit"></span>
+      <%= t "admin.users.index.btn_Edit" %>
+    <% end %>
+  </td>
+  <% if current_user? user %>
+    <td></td>
+  <% else %>
+    <td class="center">
+      <%= link_to admin_user_path(user), method: :delete, data:
+        {confirm: t("msg_confirm_delete")}, class: "text-danger" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+        <%= t "admin.users.index.btn_Delete" %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

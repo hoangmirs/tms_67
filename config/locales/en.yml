@@ -41,6 +41,7 @@ en:
   description: "The Training Management System by Framgia"
   contact_detail: "Contact the Ruby on Rails Tutorial about the sample app at the contact page."
   help_detail: "Get help on the Training Management System at the Training Management System help section"
+  msg_confirm_delete: "Are you sure you want to delete this user? This action cannot be undone!"
   application:
     login_require: "Please login"
   flash:
@@ -79,6 +80,15 @@ en:
   permission_denied: "Permission denied"
   admin:
     users:
+      index:
+        txt_index: "#"
+        txt_Name: "Name"
+        txt_Created_At: "Created At"
+        txt_Email: "Email"
+        txt_Role: "Role"
+        txt_Action: "Action"
+        btn_Edit: "Edit"
+        btn_Delete: "Delete"
       new:
         title: "Create new user"
       form:
@@ -87,3 +97,4 @@ en:
         title: "Edit user"
       show:
         edit_button: "Edit this user"
+  time_format: "%c"

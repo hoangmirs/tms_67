@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :update]
   before_action :load_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
   end
@@ -20,12 +20,13 @@ class UsersController < ApplicationController
   private
   def load_user
     @user = User.find_by id: params[:id]
-    flash[:success] = t "users.not_found"
-    redirect_to root_url unless @user
+    unless @user
+      flash[:error] = t "users.not_found"
+      redirect_to root_url
+    end
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-      :password_confirmation)
+    params.require(:user).permit :name, :email, :password, :password_confirmation
   end
 end
