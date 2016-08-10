@@ -73,7 +73,11 @@ en:
       save_button: "Save changes"
       header_text: "Update your profile"
     show:
-      edit_button: "Edit"
+      edit_button: "Edit profile"
+      edit_admin_button: "Edit as admin"
+      email: "Email"
+      create_date: "Joined at"
+      send_mail: "Send mail"
     update:
       update_success: "Profile updated"
     not_found: "User not found"
