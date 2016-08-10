@@ -1,0 +1,23 @@
+<h1><%= t "admin.subjects.list_of_subject" %></h1>
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.subjects.id" %></th>
+      <th><%= t "admin.subjects.name" %></th>
+      <th><%= t "admin.subjects.infruction" %></th>
+      <th><%= t "admin.subjects.created_at" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.id %></td>
+        <td><%= link_to subject.name, [:admin, subject] %></td>
+        <td><%= subject.instructions %></td>
+        <td><%= subject.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
