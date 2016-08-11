@@ -150,3 +150,17 @@ en:
   time_format: "%c"
   error_messages: "The form contains %{plural}."
   error_text: "error"
+  courses:
+    index:
+      title: "All courses"
+    course:
+      description: "Description"
+      duration: "Duration"
+      start_at: "Start at"
+      end_at: "End at"
+    btnView: "View"
+  labels:
+    status:
+      pending: "pending"
+      started: "started"
+      finished: "finished"

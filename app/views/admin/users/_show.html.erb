@@ -1,64 +1,62 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title center"><%= @user.name %></h3>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title center"><%= @user.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center">
+            <%= gravatar_for @user, {size: Settings.avatar.large_size} %>
           </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-3 col-lg-3 " align="center">
-                <%= gravatar_for @user, {size: Settings.avatar.large_size} %>
-              </div>
-              <div class=" col-md-9 col-lg-9 ">
-                <table class="table table-user-information">
-                  <tbody>
-                    <tr>
-                      <td><%= t "admin.users.index.txt_Email" %></td>
-                      <td><%= @user.email %></td>
-                    </tr>
-                    <tr>
-                      <td><%= t "admin.users.index.txt_Created_At" %></td>
-                      <td>
-                        <%= @user.created_at.strftime(t "time_format") %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><%= t "admin.users.index.txt_Role" %></td>
-                      <td>
-                        <span class="label label-danger">
-                          <%= @user.role %>
-                        </span>
-                      </td>
-                    </tr>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class=" col-md-9 col-lg-9 ">
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td><%= t "admin.users.index.txt_Email" %></td>
+                  <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                  <td><%= t "admin.users.index.txt_Created_At" %></td>
+                  <td>
+                    <%= @user.created_at.strftime(t "time_format") %>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= t "admin.users.index.txt_Role" %></td>
+                  <td>
+                    <span class="label label-danger">
+                    <%= @user.role %>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="panel-footer">
-          <%= mail_to @user.email, class: "btn btn-sm btn-primary" do %>
-            <i class="glyphicon glyphicon-envelope"></i>
-            <%= t ".send_mail" %>
+      </div>
+      <div class="panel-footer">
+        <%= mail_to @user.email, class: "btn btn-sm btn-primary" do %>
+          <i class="glyphicon glyphicon-envelope"></i>
+          <%= t ".send_mail" %>
+        <% end %>
+        <span class="pull-right">
+          <% if current_user?(@user) || @user.trainee? %>
+            <%= link_to edit_admin_user_path(@user),
+              class: "btn btn-sm btn-warning" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+              <%= t "admin.users.index.btn_Edit" %>
+            <% end %>
           <% end %>
-          <span class="pull-right">
-            <% if current_user?(@user) || @user.trainee? %>
-              <%= link_to edit_admin_user_path(@user),
-                class: "btn btn-sm btn-warning" do %>
-                <i class="glyphicon glyphicon-edit"></i>
-                <%= t "admin.users.index.btn_Edit" %>
-              <% end %>
+          <% if @user.trainee? %>
+            <%= link_to admin_user_path(@user), method: :delete, data:
+              {confirm: t("msg_confirm_delete")},
+              class: "btn btn-sm btn-danger" do %>
+              <i class="glyphicon glyphicon-remove"></i>
+              <%= t "admin.users.index.btn_Delete" %>
             <% end %>
-            <% if @user.trainee? %>
-              <%= link_to admin_user_path(@user), method: :delete, data:
-                {confirm: t("msg_confirm_delete")}, class: "btn btn-sm btn-danger" do %>
-                <i class="glyphicon glyphicon-remove"></i>
-                <%= t "admin.users.index.btn_Delete" %>
-              <% end %>
-            <% end %>
-          </span>
-        </div>
+          <% end %>
+        </span>
       </div>
     </div>
   </div>
