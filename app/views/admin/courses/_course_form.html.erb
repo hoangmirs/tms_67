@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-xs-5">
+    <div class="form-group">
+      <%= f.label :name, t("admin.courses.form.course_name") %>
+      <%= f.text_field :name, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :instructions, t("admin.courses.form.instruction") %>
+      <%= f.text_area :instructions, rows: 5, class: "form-control",
+        required: true %>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-6 no_gutter_left">
+        <%= f.label :start_date, t("admin.courses.form.start_date") %>
+        <%= f.date_field :start_date, class: "form-control" %>
+      </div>
+
+      <div class="col-xs-6 no_gutter_right no_gutter_left">
+        <%= f.label :end_date, t("admin.courses.form.end_date") %>
+        <%= f.date_field :end_date, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-7">
+    <%= label_tag "Subjects" %>
+    <div class="subject_table">
+      <table class="table table-hover table-bordered table-striped">
+        <thead class="bg-primary">
+        <tr>
+          <th class="check_box center">
+            <%= t "admin.courses.form.table.check" %>
+          </th>
+          <th class="center">
+            <%= t "admin.courses.form.table.subject_name" %>
+          </th>
+          <th class="center">
+            <%= t "admin.courses.form.table.instructions" %>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= f.fields_for :course_subjects do |builder| %>
+          <tr>
+            <td class="center">
+              <%= builder.check_box :_destroy, {}, 0, 1 %>
+            </td>
+            <td>
+              <%= builder.object.subject.name %>
+            </td>
+            <td class="subject_instruction">
+              <%= builder.object.subject.instructions %>
+            </td>
+          </tr>
+          <%= builder.hidden_field :subject_id, value: builder.object.subject_id %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="center col-xs-12 margin_top_20px">
+    <%= f.submit t("admin.submit"), class: "btn btn-primary margin_right_10px" %>
+    <%= button_tag t("admin.reset"), type: :reset, class: "btn btn-default" %>
+  </div>
+</div>
