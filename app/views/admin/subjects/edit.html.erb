@@ -1,0 +1,10 @@
+<%= provide :title, t("admin.subjects.edit_title")%>
+<h1><%= t "admin.subjects.edit_title" %></h1>
+<div class="row">
+  <div>
+    <%= render "shared/error_messages", object: @subject %>
+    <%= form_for [:admin, @subject] do |f| %>
+      <%= render "form", f: f %>
+    <% end %>
+  </div>
+</div>
