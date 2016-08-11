@@ -51,8 +51,11 @@ en:
       update_user: "Update user successfully!"
       destroy_user: "Delete user successfully!"
       create_subject: "Create subject successfully!"
+      delete_subject: "Delete subject successfully!"
+      update_subject: "Update subject successfully!"
     error:
       login_require: "Please login"
+      delete_subject: "Delete subject failed!"
     danger:
       login: "Login error"
       destroy_user: "Delete user unsuccessfully!"
@@ -109,6 +112,7 @@ en:
     subjects:
       form:
         submit_button: "Submit"
+        cancel_button: "Cancel"
       remove_task: "Remove task"
       new_task: "New task"
       name_task: "Name Task"
@@ -118,6 +122,12 @@ en:
       name: "name"
       infruction: "Infructions"
       created_at: "Create date"
+      delete_subject: "Delete"
+      edit_subject: "Edit"
+      edit_title: "Edit subject"
+      delete_confirm: "Do you want delete this subject?"
+      action: "Edit/ Delete"
+      not_found: "Subject doesn't exist"
   time_format: "%c"
   error_messages: "The form contains %{plural}."
   error_text: "error"

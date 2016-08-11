@@ -6,7 +6,7 @@
       <th><%= t "admin.subjects.name" %></th>
       <th><%= t "admin.subjects.infruction" %></th>
       <th><%= t "admin.subjects.created_at" %></th>
-      <th></th>
+      <th><%= t "admin.subjects.action" %></th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +16,13 @@
         <td><%= link_to subject.name, [:admin, subject] %></td>
         <td><%= subject.instructions %></td>
         <td><%= subject.created_at %></td>
+        <td>
+          <%= link_to t("admin.subjects.edit_subject"), edit_admin_subject_path(subject),
+            class: "btn btn-primary" %>
+          <%= link_to t("admin.subjects.delete_subject"), admin_subject_path(subject),
+            method: :delete, data: {confirm: t("admin.subjects.delete_confirm")},
+            class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
