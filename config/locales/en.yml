@@ -128,6 +128,7 @@ en:
       delete_confirm: "Do you want delete this subject?"
       action: "Edit/ Delete"
       not_found: "Subject doesn't exist"
+      show_title: "Subject detail"
     courses:
       form:
         start_date: "Start date"
