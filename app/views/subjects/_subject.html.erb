@@ -1,0 +1,17 @@
+<div class="masonry-item">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <%= subject.name %>
+    </div>
+    <div class="panel-body">
+      <%= subject.instructions %>
+    </div>
+    <div class="panel-footer">
+      <%= link_to subject_path(subject), class: "btn btn-primary" do %>
+        <i class="glyphicon glyphicon-search"></i>
+        <%= t "courses.btnView" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
