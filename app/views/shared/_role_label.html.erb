@@ -1,0 +1,11 @@
+<% case role %>
+<% when "trainee" %>
+  <span class="label label-info">
+<% when "supervisor" %>
+  <span class="label label-success">
+<% when "admin" %>
+  <span class="label label-danger">
+<% else %>
+  <span class="label label-default">
+<% end %>
+<%= t "labels.roles.#{role}" %></span>

@@ -1,0 +1,60 @@
+<%= provide :title, t(".title") %>
+<div class="panel panel-info">
+  <div class="panel-heading center">
+    <h3><%= @course.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-warning">
+      <div class="panel-body"><%= @course.instructions %></div>
+    </div>
+  </div>
+</div>
+<%= form_for [:admin, @course],
+  url: admin_course_user_courses_path(@course) do |f| %>
+  <div class="panel panel-success">
+    <div class="panel-heading center">
+      <h4><%= t "admin.courses.select_user_text" %></h4>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        <thead class="bg-primary">
+          <tr>
+            <th class="center">
+              <%= t ".user_name" %>
+            </th>
+            <th class="center">
+              <%= t ".user_select" %>
+            </th>
+            <th class="center">
+              <%= t ".user_role" %>
+            </th>
+          </tr>
+          </thead>
+        <tbody>
+          <%= f.fields_for :user_courses do |ff| %>
+            <tr>
+              <td class="center">
+                <%= ff.label ff.object.user.name %>
+              </td>
+              <td class="center">
+                <% if ff.object.persisted? %>
+                  <%= ff.check_box :_destroy, {checked: true}, 0, 1 %>
+                  <%= ff.hidden_field :id, value: ff.object.id %>
+                <% else %>
+                  <%= ff.check_box :user_id,
+                    {checked: false}, ff.object.user.id, nil %>
+                <% end %>
+              </td>
+              <td class="center">
+                <%= render "shared/role_label", role: ff.object.user.role %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer center">
+      <%= f.submit t(".update_button"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
