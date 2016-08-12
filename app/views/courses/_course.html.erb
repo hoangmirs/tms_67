@@ -1,0 +1,40 @@
+<div class="container col-centered">
+  <div class="toppad courses">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= render "shared/status_label", status: course.status %>
+          <%= course.name %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel panel-warning">
+          <div class="panel-body"><%= course.instructions %></div>
+        </div>
+        <div class="panel panel-success">
+          <div class="panel-body">
+            <div class="col-md-4 col-lg-4">
+              <%= t ".start_at" %>
+              <span class="label label-success">
+                <%= course.start_date %>
+              </span>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <%= t ".end_at" %>
+              <span class="label label-danger">
+                <%= course.end_date %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <%= link_to course_path(course), class: "btn btn-primary" do %>
+          <i class="glyphicon glyphicon-search"></i>
+          <%= t "courses.btnView" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
