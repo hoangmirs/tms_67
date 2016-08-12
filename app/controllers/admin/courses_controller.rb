@@ -16,6 +16,7 @@ class Admin::CoursesController < ApplicationController
     @course.user_id = current_user.id
     if @course.save
       flash[:success] = t "admin.flash.create_course"
+
       redirect_to admin_course_path @course
     else
       @course.build_course_subjects
@@ -24,6 +25,39 @@ class Admin::CoursesController < ApplicationController
   end
 
   def update
+    @course = Course.find_by id: params[:id]
+    prevent_course_nil
+
+    respond_to do |format|
+      if @course.update_attributes course_params
+        format.json do
+          render json: {
+            course_id: @course.id,
+            course_status: @course.status,
+            button_text: get_button_text,
+            confirm_text: t("admin.courses.course_item.confirm_finish")
+          }
+        end
+        format.html do
+          flash[:success] = t "admin.flash.edit_course"
+          redirect_to admin_course_path @course
+        end
+      else
+        format.html do
+          flash[:error] = t "admin.error_messages.error_occurred"
+          render :edit
+        end
+      end
+    end
+  end
+
+  def edit
+    @course = Course.find_by id: params[:id]
+    prevent_course_nil
+
+    unless @course.nil?
+      @course.build_course_subjects @course.subjects
+    end
   end
 
   def show
@@ -42,24 +76,32 @@ class Admin::CoursesController < ApplicationController
   end
 
   private
-  def load_course
-    @course = Course.find_by id: params[:id]
-    unless @course
-      flash[:danger] = t "courses.not_found"
-      redirect_to admin_courses_path
-    end
-  end
-
   def course_params
-    params.require(:course).permit :name, :instructions, :status, :start_date,
+    params.permit :name, :instructions, :status, :start_date,
       :end_date, course_subjects_attributes: [:id, :subject_id, :course_id,
       :status, :_destroy]
   end
 
+  def prevent_course_nil
+    if @course.nil?
+      flash[:error] = t "admin.error_messages.error_occurred"
+      redirect_to admin_courses_path
+    end
+  end
+
+  def get_button_text
+    case @course.status
+    when Settings.status.started_text
+      t("admin.courses.course_item.finish_course")
+    when Settings.status.finished_text
+      t("admin.courses.course_item.inactive_course")
+    end
+  end
+
   def load_course
     @course = Course.find_by id: params[:id]
     unless @course
-      flash[:course] = t "admin.courses.not_found"
+      flash[:course] = t "courses.not_found"
       redirect_to admin_courses_path
     end
   end
