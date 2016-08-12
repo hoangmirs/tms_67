@@ -162,11 +162,15 @@ en:
   courses:
     index:
       title: "All courses"
+    show:
+      subject_in_course: "Subjects in course"
+      description: "Description"
     course:
       description: "Description"
       duration: "Duration"
       start_at: "Start at"
       end_at: "End at"
+      not_found: "Course not found."
     btnView: "View"
   labels:
     status:
