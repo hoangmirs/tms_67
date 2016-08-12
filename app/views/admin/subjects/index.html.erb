@@ -14,7 +14,7 @@
       <tr>
         <td><%= subject.id %></td>
         <td><%= link_to subject.name, [:admin, subject] %></td>
-        <td><%= subject.instructions %></td>
+        <td class = "truncate"><%= subject.instructions %></td>
         <td><%= subject.created_at %></td>
         <td>
           <%= link_to t("admin.subjects.edit_subject"), edit_admin_subject_path(subject),

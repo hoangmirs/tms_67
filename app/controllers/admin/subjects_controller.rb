@@ -11,6 +11,10 @@ class Admin::SubjectsController < ApplicationController
     @subject.tasks.build
   end
 
+  def show
+    @tasks = @subject.tasks
+  end
+
   def create
     @subject = Subject.new subject_params
     if @subject.save
