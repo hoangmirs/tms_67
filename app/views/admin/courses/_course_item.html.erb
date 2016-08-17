@@ -2,7 +2,22 @@
   <div class="course_item">
     <div class="col-md-12">
       <h2 class="course_name">
-        <%= link_to course.name, admin_course_path(course) %></h2>
+        <%= link_to course.name, admin_course_path(course) %>
+      </h2>
+
+      <div class="dropdown course_item_option">
+        <span class="glyphicon glyphicon glyphicon-cog"
+          data-toggle="dropdown" aria-hidden="true"></span>
+        <ul class="dropdown-menu">
+          <li><a href="#"><%= t "admin.courses.course_item.Edit" %></a></li>
+          <li>
+            <%= link_to t("admin.courses.course_item.delete"),
+              admin_course_path(course),
+              method: :delete,
+              data: {confirm: t("admin.courses.confirm_delete")} %>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="col-md-12">
       <div class="course_created_date">
@@ -34,7 +49,7 @@
             <%= t "admin.courses.course_item.trainees" %>
           </p>
 
-          <div class="col-md-12">
+          <div class="center">
             <button class="btn btn-primary">
               <%= t "admin.courses.course_item.start_course" %>
             </button>

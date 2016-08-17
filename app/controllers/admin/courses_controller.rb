@@ -29,6 +29,15 @@ class Admin::CoursesController < ApplicationController
   end
 
   def destroy
+    @course = Course.find_by id: params[:id]
+
+    if @course.present? && @course.destroy
+      flash[:success] = t "admin.courses.mess_delete_success"
+    else
+      flash[:warning] = t "admin.courses.mess_delete_fail"
+    end
+
+    redirect_to admin_courses_path
   end
 
   private

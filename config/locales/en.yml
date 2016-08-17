@@ -149,6 +149,11 @@ en:
         end_date: "End date"
         start_course: "Start course"
         trainees: "trainees"
+        delete: "Delete"
+        Edit: "Edit"
+      confirm_delete: "Are you sure you want to delete this course?"
+      mess_delete_success: "You have deleted the course!"
+      mess_delete_fail: "Some error occurred! Course can't be deleted!"
     submit: "Submit"
     reset: "Reset"
     flash:
