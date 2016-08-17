@@ -7,6 +7,9 @@ role:
   admin: "admin"
   supervisor: "supervisor"
   trainee: "trainee"
+subject_course:
+  status_start: 1
+  status_finish: 2
 pagination:
   size: 15
 activity:
