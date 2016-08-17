@@ -38,6 +38,14 @@ class Course < ActiveRecord::Base
     end
   end
 
+  def build_user_courses added_users = Array.new
+    User.trainee.each do |user|
+      unless added_users.include? user
+        self.user_courses.build user_id: user.id
+      end
+    end
+  end
+
   private
   def valid_startdate_enddate
     return if [end_date.blank?, start_date.blank?].any?

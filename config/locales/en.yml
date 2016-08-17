@@ -53,6 +53,7 @@ en:
       create_subject: "Create subject successfully!"
       delete_subject: "Delete subject successfully!"
       update_subject: "Update subject successfully!"
+      add_user_to_course: "Add users to course successfully!"
     error:
       login_require: "Please login"
       delete_subject: "Delete subject failed!"
@@ -154,6 +155,14 @@ en:
       confirm_delete: "Are you sure you want to delete this course?"
       mess_delete_success: "You have deleted the course!"
       mess_delete_fail: "Some error occurred! Course can't be deleted!"
+      select_user_text: "Select user below"
+    user_courses:
+      show:
+        title: "Add users to course"
+        user_name: "Name"
+        user_select: "Select"
+        user_role: "Role"
+        update_button: "Update changes"
     submit: "Submit"
     reset: "Reset"
     flash:
@@ -165,6 +174,7 @@ en:
   error_messages: "The form contains %{plural}."
   error_text: "error"
   courses:
+    not_found: "Course not found."
     index:
       title: "All courses"
     show:
@@ -182,3 +192,7 @@ en:
       pending: "pending"
       started: "started"
       finished: "finished"
+    roles:
+      admin: "admin"
+      supervisor: "supervisor"
+      trainee: "trainee"
