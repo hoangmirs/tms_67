@@ -7,6 +7,8 @@ class CoursesController < ApplicationController
 
   def show
     @subjects = @course.subjects
+    @activities = current_user.activities
+      .by_target Settings.activity.target_type.course, @course.id
   end
 
   private

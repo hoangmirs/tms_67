@@ -9,3 +9,15 @@ role:
   trainee: "trainee"
 pagination:
   size: 15
+activity:
+  target_type:
+    course: 0
+    subject: 1
+    task: 2
+  content:
+    start_subject: "activity.content.start_subject"
+    finished_subject: "activity.content.finished_subject"
+    start_course: "activity.content.start_course"
+    finished_course: "activity.content.finished_course"
+    completed_task: "activity.content.completed_task"
+

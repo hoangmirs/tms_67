@@ -42,3 +42,15 @@
     </div>
   </div>
 </div>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <%= t "activity.title" %>
+  </div>
+  <div class="panel-body container">
+    <% if @activities.any? %>
+      <%= render @activities, object: @course %>
+    <% else %>
+      <%= t "activity.none" %>
+    <% end %>
+  </div>
+</div>
