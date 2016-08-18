@@ -12,6 +12,13 @@ subject_course:
   status_finish: 2
 pagination:
   size: 15
+status:
+  pending: 0
+  pending_text: "pending"
+  started: 1
+  started_text: "started"
+  finished: 2
+  finished_text: "finished"
 activity:
   target_type:
     course: 0
