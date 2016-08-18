@@ -1,0 +1,35 @@
+<%= provide :title, @subject.name %>
+<h1><%= @subject.name %></h1>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <%= render "shared/status_label", status: get_subject_status(@subject) %>
+    <p><%= t ".instructions" %></p>
+  </div>
+  <div class="panel-body">
+    <div class="course_instruction">
+      <%= @subject.instructions %>
+    </div>
+  </div>
+</div>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <%= t ".tasks_in_subject" %>
+  </div>
+  <div class="panel-body">
+    <div class="masonry">
+      <%= render @tasks %>
+    </div>
+  </div>
+</div>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <%= t "activity.title" %>
+  </div>
+  <div class="panel-body container">
+    <% if @activities.any? %>
+      <%= render @activities, object: @subject %>
+    <% else %>
+      <%= t "activity.none" %>
+    <% end %>
+  </div>
+</div>

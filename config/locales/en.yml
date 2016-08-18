@@ -225,3 +225,8 @@ en:
       completed_task: "Completed task %{name}"
       time: " %{time} ago"
       unactive_subject: "Unactive Subject"
+  subjects:
+    show:
+      tasks_in_subject: "Tasks in subject"
+      instructions: "Instructions"
+      not_found: "Subject is not found!"
