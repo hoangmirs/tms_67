@@ -1,0 +1,65 @@
+<div class="row header-course jumbotron">
+  <h1 class="label-name"><%= @course.name %></h1>
+  <div class="row">
+    <div class="col-md-8">
+      <% case @course.status %>
+      <% when "open" %>
+        <span class="label label-info">
+      <% when "started" %>
+        <span class="label label-success">
+      <% when "finished" %>
+        <span class="label label-danger">
+      <% else %>
+        <span class="label label-default">
+      <% end %>
+      <%= t "admin.courses.status.#{@course.status}" %></span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="edit-operation">
+      <%= link_to t("admin.courses.edit"), "#", class: "btn btn-primary" %>
+      <%= link_to t("admin.courses.delete"), "#", class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "admin.courses.description" %>
+      </h2>
+      <p><%= @course.instructions %></p>
+    </div>
+    <div class="row">
+      <h2 class="label-name">
+        <%= t "admin.courses.subject_info" %>
+      </h2>
+      <ul class="white-in">
+        <% @course.subjects.each do |subject| %>
+          <div class = "course-list">
+            <h3><%= link_to subject.name, [:admin, subject] %></h3>
+            <p><%= subject.instructions %></p>
+            <% if @course.started? %>
+              <% case subject_course.status %>
+              <% when "pending" %>
+                <%= link_to t("admin.labels.status.pending"), "#",
+                  class: "btn btn-sm btn-default" %>
+              <% when "started" %>
+                <%= link_to t("admin.labels.status.started"), "#",
+                  class: "btn btn-sm btn-danger" %>
+              <% when "finished" %>
+                <%= link_to t("admin.labels.status.finished"), "#",
+                  class: "btn btn-sm btn-danger disabled" %>
+              <% end %>
+            <% else %>
+              <%= link_to t("admin.labels.status.unactive_subject"), root_url,
+                class: "btn btn-sm btn-danger disabled" %>
+            <% end %>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

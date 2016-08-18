@@ -163,6 +163,16 @@ en:
         user_select: "Select"
         user_role: "Role"
         update_button: "Update changes"
+      not_found: "Course doesn't exist"
+      description: "Course description"
+      subject_info: "Subject infomations"
+      delete: "Delete course"
+      delete_confirm: "Delete this course?"
+      edit: "Edit course"
+      status:
+        pending: "Pending"
+        started: "Started"
+        finished: "Finished"
     submit: "Submit"
     reset: "Reset"
     flash:
@@ -192,6 +202,7 @@ en:
       pending: "pending"
       started: "started"
       finished: "finished"
+      unactive_subject: "Unactive Subject"
     roles:
       admin: "admin"
       supervisor: "supervisor"
@@ -206,3 +217,4 @@ en:
       finished_course: "Finished course %{name}"
       completed_task: "Completed task %{name}"
       time: " %{time} ago"
+      unactive_subject: "Unactive Subject"
