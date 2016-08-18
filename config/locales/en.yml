@@ -196,3 +196,13 @@ en:
       admin: "admin"
       supervisor: "supervisor"
       trainee: "trainee"
+  activity:
+    title: "Activities"
+    none: "You have not any activities."
+    content:
+      start_subject: "Start subject %{name}"
+      finished_subject: "Finished %{name}"
+      start_course: "Start course %{name}"
+      finished_course: "Finished course %{name}"
+      completed_task: "Completed task %{name}"
+      time: " %{time} ago"
