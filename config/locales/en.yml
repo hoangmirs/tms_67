@@ -54,12 +54,14 @@ en:
       delete_subject: "Delete subject successfully!"
       update_subject: "Update subject successfully!"
       add_user_to_course: "Add users to course successfully!"
+      report_updated: "Updated report!"
     error:
       login_require: "Please login"
       delete_subject: "Delete subject failed!"
     danger:
       login: "Login error"
       destroy_user: "Delete user unsuccessfully!"
+      report_updated: "Failed to report!"
     notice:
       login: "Login error"
       permission_denied: "Permission denied!"
@@ -230,3 +232,6 @@ en:
       tasks_in_subject: "Tasks in subject"
       instructions: "Instructions"
       not_found: "Subject is not found!"
+      finished_label: "finished"
+      finish_confirm: "Finish?"
+      report_button: "Report"
