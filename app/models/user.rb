@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
+  def active_course
+    user_course = user_courses.find &:is_active?
+    user_course.try :course
+  end
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

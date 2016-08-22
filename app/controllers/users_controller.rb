@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
+    @active_course = @user.active_course
   end
 
   def edit

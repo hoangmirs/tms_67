@@ -81,11 +81,17 @@ en:
       save_button: "Save changes"
       header_text: "Update your profile"
     show:
+      course_info: "Course information:"
+      subjects_list: "Subjects list:"
+      current_course_info: "Current course information"
+      activities_list: "Activities list"
       edit_button: "Edit profile"
       edit_admin_button: "Edit as admin"
       email: "Email"
       create_date: "Joined at"
       send_mail: "Send mail"
+      user_has_no_course: "This user has no active course!"
+      course_has_no_subject: "This course has no subject!"
     update:
       update_success: "Profile updated"
     not_found: "User not found"

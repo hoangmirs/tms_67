@@ -55,19 +55,17 @@
           <div class="col-md-12 course_action_<%= course.id %>">
             <% case course.status %>
             <% when "pending" %>
-              <%= link_to t("admin.courses.course_item.start_course"),
-                admin_course_path(course,
-                  status: Settings.status.started_text),
+              <%= link_to t("admin.courses.course_item.start_course"), admin_course_path(course),
                 data: {
-                  confirm: t("admin.courses.course_item.confirm_start")
+                  confirm: t("admin.courses.course_item.confirm_start"),
+                  status: Settings.status.started_text
                 },
                 class: "btn btn-primary" %>
             <% when "started" %>
-              <%= link_to t("admin.courses.course_item.finish_course"),
-                admin_course_path(course,
-                  status: Settings.status.finished_text),
+              <%= link_to t("admin.courses.course_item.finish_course"), admin_course_path(course),
                 data: {
-                  confirm: t("admin.courses.course_item.confirm_finish")
+                  confirm: t("admin.courses.course_item.confirm_finish"),
+                  status: Settings.status.finished_text
                 },
                 class: "btn btn-danger" %>
             <% when "finished" %>
