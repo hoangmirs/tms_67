@@ -9,7 +9,7 @@ class Admin::UserCoursesController < ApplicationController
   def update
     if @course.update_attributes course_params
       flash[:success] = t "flash.success.add_user_to_course"
-      redirect_to admin_course_path @course.users
+      redirect_to admin_course_path @course
     else
       render :edit
     end
