@@ -24,11 +24,12 @@ class SubjectsController < ApplicationController
   private
   def load_subject
     @subject = Subject.find_by id: params[:id]
-    unless @subject && current_user.subjects.include?(@subject)
+    @course = Course.find_by id: params[:course_id]
+    unless @subject && current_user.subjects.include?(@subject) && @course
       flash[:danger] = t ".not_found"
       redirect_to courses_path
     end
-    @user_subject = get_user_subject @subject
+    @user_subject = get_user_subject current_user, @subject, @course.id
   end
 
   def user_subject_params

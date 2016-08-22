@@ -2,7 +2,7 @@
 <h1><%= @subject.name %></h1>
 <div class="panel panel-success">
   <div class="panel-heading">
-    <%= render "shared/status_label", status: get_subject_status(@subject) %>
+    <%= render "shared/status_label", status: @user_subject.status %>
     <p><%= t ".instructions" %></p>
   </div>
   <div class="panel-body">
@@ -15,7 +15,7 @@
   <div class="panel-heading">
     <%= t ".tasks_in_subject" %>
   </div>
-  <%= form_for @user_subject, url: subject_path(@subject) do |f| %>
+  <%= form_for @user_subject, url: course_subject_path(@course, @subject) do |f| %>
     <div class="panel-body">
       <div class="masonry">
         <%= f.fields_for :user_tasks do |builder| %>

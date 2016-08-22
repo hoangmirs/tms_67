@@ -1,4 +1,5 @@
 class Admin::UserCoursesController < ApplicationController
+  before_action :logged_in_user, :verify_admin_and_supervisor
   before_action :load_course, only: [:show, :update]
 
   def show

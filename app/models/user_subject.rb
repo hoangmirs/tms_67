@@ -12,6 +12,12 @@ class UserSubject < ActiveRecord::Base
       attributes[:task_id].blank?}
 
   scope :by_user, ->user{where user_id: user.id}
+  scope :by_subject, ->subject{where subject_id: subject.id}
+  scope :by_course_subject, ->course_id, subject do
+    user_course_ids = "SELECT id FROM user_courses WHERE  course_id = :course_id"
+    where("user_course_id IN (#{user_course_ids})", course_id: course_id)
+      .by_subject subject
+  end
 
   def build_user_tasks user, finished_tasks = Array.new
     self.subject.tasks.each do |task|
