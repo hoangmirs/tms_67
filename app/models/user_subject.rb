@@ -11,6 +11,8 @@ class UserSubject < ActiveRecord::Base
     reject_if: proc {|attributes| attributes[:user_id].blank? ||
       attributes[:task_id].blank?}
 
+  scope :by_user, ->user{where user_id: user.id}
+
   def build_user_tasks user, finished_tasks = Array.new
     self.subject.tasks.each do |task|
       unless finished_tasks.include? task

@@ -42,6 +42,7 @@ en:
   contact_detail: "Contact the Ruby on Rails Tutorial about the sample app at the contact page."
   help_detail: "Get help on the Training Management System at the Training Management System help section"
   msg_confirm_delete: "Are you sure you want to delete this user? This action cannot be undone!"
+  btnOK: "OK"
   application:
     login_require: "Please login"
   flash:
@@ -112,6 +113,7 @@ en:
       show:
         edit_button: "Edit this user"
         send_mail: "Send mail"
+        user_course: "%{name}'s courses"
     subjects:
       form:
         submit_button: "Submit"
