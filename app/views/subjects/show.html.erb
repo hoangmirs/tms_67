@@ -15,11 +15,37 @@
   <div class="panel-heading">
     <%= t ".tasks_in_subject" %>
   </div>
-  <div class="panel-body">
-    <div class="masonry">
-      <%= render @tasks %>
+  <%= form_for @user_subject, url: subject_path(@subject) do |f| %>
+    <div class="panel-body">
+      <div class="masonry">
+        <%= f.fields_for :user_tasks do |builder| %>
+          <div class="masonry-item">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <%= builder.object.task.name %>
+              </div>
+              <div class="panel-body">
+                <%= builder.object.task.content %>
+              </div>
+              <div class="panel-footer">
+                <% if builder.object.persisted? %>
+                  <p class="label label-danger"><%= t ".finished_label" %></p>
+                <% else %>
+                  <%= builder.check_box :task_id, {checked: builder.object
+                      .persisted?}, builder.object.task.id, nil %>
+                  <p class="label label-success"><%= t ".finish_confirm" %></p>
+                  <%= builder.hidden_field :user_id, value: current_user.id %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
+    <div class="panel-footer">
+      <%= f.submit t(".report_button"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>
 <div class="panel panel-warning">
   <div class="panel-heading">

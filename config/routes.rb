@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :subjects
   resources :courses, only: [:index, :show]
+  resources :user_subjects, only: :update
   namespace :admin do
     resources :users
     resources :subjects
