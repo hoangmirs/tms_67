@@ -8,6 +8,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @user_courses = UserCourse.by_user @user
     respond_to do |format|
       format.html
       format.js

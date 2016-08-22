@@ -1,0 +1,26 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4 class="panel-title">
+          <%= link_to user_course.course.name,
+            admin_course_path(user_course.course) %>
+        </h4>
+      </div>
+      <div class="col-sm-4">
+        <span class="label label-success">
+          <%= user_course.course.start_date.strftime(t "date_format") %>
+        </span>
+        <span class="label label-danger">
+          <%= user_course.course.end_date.strftime(t "date_format") %>
+        </span>
+      </div>
+      <div class="col-sm-2">
+        <%= render "shared/status_label", status: user_course.course.status %>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render user_course.user_subjects.by_user @user %>
+  </div>
+</div>

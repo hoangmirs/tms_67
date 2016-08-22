@@ -13,10 +13,20 @@
   <%= render "user_all" %>
   <%= will_paginate %>
 </div>
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">x</span>
-    <div id="user-show">
+<div id="myModal" class="modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+      </div>
+      <div class="modal-body">
+        <div id="user-show"></div>
+      </div>
+      <div class="modal-footer">
+        <a data-dismiss="modal" class="btn btn-success confirm">
+          <%= t "btnOK" %>
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="col-sm-6">
+  <%= link_to user_subject.subject.name,
+    admin_subject_path(user_subject.subject) %>
+</div>
+<div class="col-sm-4">
+  <span class="label label-success">
+    <%= user_subject.start_date.strftime(t "date_format") %>
+  </span>
+  <span class="label label-danger">
+    <%= user_subject.end_date.strftime(t "date_format") %>
+  </span>
+</div>
+<div class="col-sm-2">
+  <%= render "shared/status_label", status: user_subject.status %>
+</div>
