@@ -5,6 +5,12 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.order("created_at DESC")
       .paginate page: params[:page], per_page: Settings.pagination.size
+    @all_users = User.all
+    respond_to do |format|
+      format.html
+      format.csv {send_data @all_users.to_csv}
+      format.xls
+    end
   end
 
   def show
