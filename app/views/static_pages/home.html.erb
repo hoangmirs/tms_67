@@ -1,8 +1,78 @@
 <div id="home_message_wrapper">
   <div class="row">
     <div class="col-md-12 welcome_message">
-      <h1><%= t "welcome_message" %></h1>
-      <h2><%= link_to t("login"), "#", id: "btn_login" %> <%= t "login_guide" %></h2>
+      <h1>
+        <%= t "welcome_message" %>
+      </h1>
+      <% if logged_in? %>
+        <nav id="colorNav">
+          <ul>
+            <li class="green">
+              <%= link_to "", root_path, class: "glyphicon glyphicon-home" %>
+              <ul>
+                <li>
+                  <%= link_to t("home.back_to_home"), root_path %>
+                </li>
+              </ul>
+            </li>
+
+            <% if current_user_is_admin? %>
+              <li class="red">
+                <%= link_to "", admin_users_path,
+                  class: "glyphicon glyphicon-user" %>
+                <ul>
+                  <li>
+                    <%= link_to t("home.user_list"), admin_users_path %>
+                  </li>
+                  <li>
+                    <%= link_to t("home.add_new_list"), new_admin_user_path %>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+
+            <li class="blue">
+              <a href="#" class="glyphicon glyphicon-tags"></a>
+              <ul>
+                <li>
+                  <% if current_user_is_admin? %>
+                    <%= link_to t("home.browse_courses"), admin_courses_path %>
+                  <% else %>
+                    <%= link_to t("home.browse_courses"), courses_path %>
+                  <% end %>
+                </li>
+                <% if current_user_is_admin? %>
+                  <li>
+                    <%= link_to t("home.add_new_course"),
+                      new_admin_course_path %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+
+            <% if current_user_is_admin? %>
+              <li class="yellow">
+                <a href="#" class="glyphicon glyphicon-th-list"></a>
+                <ul>
+                  <li>
+                    <%= link_to t("home.browse_subjects"),
+                      admin_subjects_path %>
+                  </li>
+                  <li>
+                    <%= link_to t("home.add_new_subject"),
+                      new_admin_subject_path %>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      <% else %>
+        <h2>
+          <%= link_to t("login"), login_path, id: "btn_login" %>
+          <%= t "login_guide" %>
+        </h2>
+      <% end %>
     </div>
   </div>
 </div>

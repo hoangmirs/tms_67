@@ -1,13 +1,13 @@
 <div class="panel-header">
-  <div class="label label-warning">
+  <div class="label label-warning pull-right">
     <%= t ".export" %>
     <%= link_to t(".export_csv"), admin_users_path(format: "csv") %> |
     <%= link_to t(".export_xls"), admin_users_path(format: "xls") %>
   </div>
-  <span class="pull-right">
+  <span class="pull-left margin_bottom_10px">
     <% unless current_user.trainee? %>
       <%= link_to new_admin_user_path,
-        class: "btn btn-success" do %>
+        class: "btn btn-primary" do %>
         <i class="glyphicon glyphicon-new"></i>
         <%= t "admin.users.index.btn_New" %>
       <% end %>
