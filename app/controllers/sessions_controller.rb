@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
       flash[:success] = I18n.t "flash.success.login"
       log_in user
       params[:session][:remember_me] == Settings.session.remember_value ? remember(user) : forget(user)
-      redirect_to user
+      if user.trainee?
+        redirect_to user
+      else
+        redirect_to admin_user_path(user)
+      end
     else
       flash.now[:danger] = I18n.t "sessions.create.login_invalid"
       render :new

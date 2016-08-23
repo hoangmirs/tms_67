@@ -14,7 +14,7 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-      <%= render "layouts/common_actions" %>
+      <%= render "layouts/common_actions" if logged_in? %>
       <%= render "layouts/footer" %>
     </div>
   </body>

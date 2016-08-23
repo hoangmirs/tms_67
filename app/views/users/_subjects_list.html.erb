@@ -1,3 +1,4 @@
+<% user_subject = get_user_subject current_user, subject, course.id %>
 <div class="panel-group" role="tablist">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="id_subject_<%= subject.id %>">
@@ -7,13 +8,29 @@
           aria-controls="id_tasks_<%= subject.id %>">
           <%= subject.name %>
         </a>
+        <%= render "shared/status_label", status: user_subject&.status %>
       </h4>
     </div>
     <div id="id_tasks_<%= subject.id %>" class="panel-collapse collapse"
       role="tabpanel" aria-labelledby="id_subject_<%= subject.id %>">
         <ul class="list-group">
           <% subject.tasks.each do |task| %>
-              <li class="list-group-item"><%= task.name %></li>
+            <li class="list-group-item">
+              <%= task.name %>
+              <% if user_subject %>
+                <% user_task = user_subject.user_tasks
+                  .by_task(task.id).first  %>
+                <% if user_task %>
+                  <p class="label label-success pull-right">
+                    <%= t "task_status.finished" %>
+                  </p>
+                <% else %>
+                  <p class="label label-danger pull-right">
+                    <%= t "tast_status.unfinished" %>
+                  </p>
+                <% end %>
+              <% end %>
+            </li>
           <% end %>
         </ul>
     </div>

@@ -12,9 +12,10 @@ class SubjectsController < ApplicationController
   end
 
   def update
+    session[:return_to] ||= request.referer
     if @user_subject.update_attributes user_subject_params
       flash[:success] = t "flash.success.report_updated"
-      redirect_to @subject
+      redirect_to session.delete(:return_to)
     else
       flash[:danger] = t "flash.danger.report_updated"
       redirect_to courses_path

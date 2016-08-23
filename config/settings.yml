@@ -19,6 +19,8 @@ status:
   started_text: "started"
   finished: 2
   finished_text: "finished"
+  active: true
+  inactive: false
 activity:
   target_type:
     course: 0
@@ -30,4 +32,5 @@ activity:
     start_course: "activity.content.start_course"
     finished_course: "activity.content.finished_course"
     completed_task: "activity.content.completed_task"
-
+    joined_course: "activity.content.joined_course"
+    joined_subject: "activity.content.joined_subject"

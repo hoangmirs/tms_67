@@ -261,13 +261,15 @@ en:
     title: "Activities"
     none: "There are no activities to be shown."
     content:
-      start_subject: "Start subject %{name}"
-      finished_subject: "Finished %{name}"
-      start_course: "Start course %{name}"
-      finished_course: "Finished course %{name}"
-      completed_task: "Completed a task in %{name}:"
+      start_subject: "Start subject \"%{name}\""
+      finished_subject: "Finished subject \"%{name}\""
+      start_course: "Start course \"%{name}\""
+      finished_course: "Finished course \"%{name}\""
+      completed_task: "Completed task \"%{second_name}\" in subject \"%{name}\""
       time: " %{time} ago"
       unactive_subject: "Unactive Subject"
+      joined_subject: "Joined subject \"%{name}\""
+      joined_course: "Joined course \"%{name}\""
   subjects:
     show:
       tasks_in_subject: "Tasks in subject"
@@ -282,3 +284,7 @@ en:
   s_character: "S"
   c_character: "C"
   u_character: "U"
+  task_status:
+    finished: "finished"
+    unfinished: "unfinished"
+
