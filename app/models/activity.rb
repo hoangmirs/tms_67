@@ -21,11 +21,14 @@ class Activity < ActiveRecord::Base
   def name
     case target_type
     when Settings.activity.target_type.course
-      Course.find_by(id: target_id)&.name
+      course = Course.find_by id: target_id
+      course ? course.name : ""
     when Settings.activity.target_type.subject
-      Subject.find_by(id: target_id)&.name
+      subject = Subject.find_by id: target_id
+      subject ? subject.name : ""
     when Settings.activity.target_type.task
-      Task.find_by(id: target_id)&.name
+      task = Task.find_by id: target_id
+      task ? task.name : ""
     else
       nil
     end
