@@ -31,10 +31,17 @@
                 <% if builder.object.persisted? %>
                   <p class="label label-danger"><%= t ".finished_label" %></p>
                 <% else %>
-                  <%= builder.check_box :task_id, {checked: builder.object
+                  <% if @user_subject.started? %>
+                    <%= builder.check_box :task_id, {checked: builder.object
                       .persisted?}, builder.object.task.id, nil %>
-                  <p class="label label-success"><%= t ".finish_confirm" %></p>
-                  <%= builder.hidden_field :user_id, value: current_user.id %>
+                    <p class="label label-warning">
+                      <%= t ".finish_question" %>
+                    </p>
+                    <%= builder.hidden_field :user_id,
+                      value: current_user.id %>
+                  <% else %>
+                    <p class="label label-default"><%= t ".not_finish" %></p>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -43,7 +50,14 @@
       </div>
     </div>
     <div class="panel-footer">
-      <%= f.submit t(".report_button"), class: "btn btn-primary" %>
+      <% if @user_subject.started? %>
+        <%= f.submit t(".report_button"), class: "btn btn-primary" %>
+        <span class="pull-right">
+          <span class="label label-danger"><%= t ".finish_question" %></span>
+          <%= f.check_box :status, {checked: false,
+            class: "checkbox-inline"}, Settings.status.finished_text, nil %>
+        </span>
+      <% end %>
     </div>
   <% end %>
 </div>

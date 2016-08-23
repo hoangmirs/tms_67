@@ -32,7 +32,7 @@ class SubjectsController < ApplicationController
   end
 
   def user_subject_params
-    params.require(:user_subject).permit user_tasks_attributes: [:user_id,
-      :task_id]
+    params.require(:user_subject).permit :status,
+      user_tasks_attributes: [:user_id, :task_id]
   end
 end

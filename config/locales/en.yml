@@ -56,6 +56,7 @@ en:
       update_subject: "Update subject successfully!"
       add_user_to_course: "Add users to course successfully!"
       report_updated: "Updated report!"
+      finish_updated: "Finished subject!"
     error:
       login_require: "Please login"
       delete_subject: "Delete subject failed!"
@@ -171,6 +172,9 @@ en:
       mess_delete_success: "You have deleted the course!"
       mess_delete_fail: "Some error occurred! Course can't be deleted!"
       select_user_text: "Select user below"
+      delete: "Delete"
+      edit: "Edit"
+      add_trainees: "Add trainees"
     user_courses:
       show:
         title: "Add users to course"
@@ -232,7 +236,7 @@ en:
       finished_subject: "Finished %{name}"
       start_course: "Start course %{name}"
       finished_course: "Finished course %{name}"
-      completed_task: "Completed task %{name}"
+      completed_task: "Completed a task in %{name}:"
       time: " %{time} ago"
       unactive_subject: "Unactive Subject"
   subjects:
@@ -241,5 +245,8 @@ en:
       instructions: "Instructions"
       not_found: "Subject is not found!"
       finished_label: "finished"
-      finish_confirm: "Finish?"
+      finish_question: "Finish?"
       report_button: "Report"
+      finish_button: "Finish"
+      finish_confirm: "Are you sure you want to finish this subject?"
+      not_finish: "not finish"
