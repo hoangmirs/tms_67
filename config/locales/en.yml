@@ -21,6 +21,9 @@
 
 en:
   system_name: "Framgia Training System"
+  manager_user: "User"
+  manager_course: "Course"
+  manager_subject: "Subject"
   slogan: "Train for results - not for hours"
   welcome_message: "Welcome to Framgia Training System!"
   login: "Login"
