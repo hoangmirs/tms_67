@@ -1,4 +1,4 @@
-<div class="row container">
-  <%= t activity.content, name: object.name %>
+<li>
+  <%= t activity.content, name: activity.name %>
   <%= t "activity.content.time", time: time_ago_in_words(activity.created_at) %>
-</div>
+</li>

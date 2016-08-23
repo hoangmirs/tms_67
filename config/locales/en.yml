@@ -88,6 +88,7 @@ en:
     show:
       course_info: "Course information:"
       subjects_list: "Subjects list:"
+      activities_list: "Activities list:"
       current_course_info: "Current course information"
       activities_list: "Activities list"
       edit_button: "Edit profile"
@@ -242,7 +243,7 @@ en:
       trainee: "trainee"
   activity:
     title: "Activities"
-    none: "You have not any activities."
+    none: "There are no activities to be shown."
     content:
       start_subject: "Start subject %{name}"
       finished_subject: "Finished %{name}"

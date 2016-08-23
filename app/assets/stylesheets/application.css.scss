@@ -343,6 +343,7 @@ table {
 
   #id_course_info{
     border: 1px solid #ddd;
+    border-radius: 0 4px 4px 4px;
     padding: 10px;
     display: block;
     float: left;
@@ -366,4 +367,13 @@ table {
 
 .panel>.list-group, .panel>.panel-collapse>.list-group{
   margin-bottom: 0;
+}
+
+#id_activities_wrapper{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  float: left;
+  width: 100%;
 }
