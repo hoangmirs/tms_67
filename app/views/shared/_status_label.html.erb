@@ -1,15 +1,15 @@
 <% if status %>
   <% case status %>
-  <% when "pending" %>
+  <% when Settings.status.pending_text %>
     <span class="label label-info pull-right">
-  <% when "started" %>
+  <% when Settings.status.started_text %>
     <span class="label label-success pull-right">
-  <% when "finished" %>
+  <% when Settings.status.finished_text %>
     <span class="label label-danger pull-right">
   <% else %>
     <span class="label label-default pull-right">
   <% end %>
-  <%= t "labels.#{status}" %></span>
+  <%= t "labels.status.#{status}" %></span>
 <% else %>
   <span class="label label-default pull-right">
   <%= t "labels.unactive_subject" %></span>

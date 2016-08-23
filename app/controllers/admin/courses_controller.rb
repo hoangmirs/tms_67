@@ -1,4 +1,5 @@
 class Admin::CoursesController < ApplicationController
+  before_action :logged_in_user, :verify_admin_and_supervisor
   before_action :load_course, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,7 +17,6 @@ class Admin::CoursesController < ApplicationController
     @course.user_id = current_user.id
     if @course.save
       flash[:success] = t "admin.flash.create_course"
-
       redirect_to admin_course_path @course
     else
       @course.build_course_subjects
@@ -45,7 +45,7 @@ class Admin::CoursesController < ApplicationController
         end
       else
         format.html do
-          flash[:error] = t "admin.error_messages.error_occurred"
+          flash[:danger] = t "admin.error_messages.error_occurred"
           render :edit
         end
       end

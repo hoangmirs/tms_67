@@ -1,9 +1,9 @@
 <% case role %>
-<% when "trainee" %>
+<% when Settings.role.trainee %>
   <span class="label label-info">
-<% when "supervisor" %>
+<% when Settings.role.supervisor %>
   <span class="label label-success">
-<% when "admin" %>
+<% when Settings.role.admin %>
   <span class="label label-danger">
 <% else %>
   <span class="label label-default">

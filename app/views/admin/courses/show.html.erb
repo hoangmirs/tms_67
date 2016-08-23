@@ -19,9 +19,13 @@
 <div class="row">
   <div class="col-md-8">
     <div class="edit-operation">
-      <%= link_to t("admin.courses.edit"), "#", class: "btn btn-primary" %>
-      <%= link_to t("admin.courses.delete"), "#", class: "btn btn-danger" %>
-      <%= link_to t("admin.courses.add_trainees"), admin_course_user_courses_path(@course), class: "btn btn-success" %>
+      <%= link_to t("admin.courses.edit"), edit_admin_course_path(@course),
+        class: "btn btn-primary" %>
+      <%= link_to t("admin.courses.delete"), admin_course_path(@course),
+        class: "btn btn-danger",
+        data: {confirm: t("admin.courses.confirm_delete")} %>
+      <%= link_to t("admin.courses.assign_users"),
+        admin_course_user_courses_path(@course), class: "btn btn-success" %>
     </div>
   </div>
 </div>
@@ -38,20 +42,30 @@
         <%= t "admin.courses.subject_info" %>
       </h2>
       <ul class="white-in">
-        <% @course.subjects.each do |subject| %>
+        <% @course.course_subjects.each do |course_subject| %>
           <div class = "course-list">
-            <h3><%= link_to subject.name, [:admin, subject] %></h3>
-            <p><%= subject.instructions %></p>
+            <%= render "shared/status_label",
+              status: course_subject.status %>
+            <h3><%= link_to course_subject.subject.name, [:admin, course_subject.subject] %></h3>
+            <p><%= course_subject.subject.instructions %></p>
             <% if @course.started? %>
-              <% case subject_course.status %>
-              <% when "pending" %>
-                <%= link_to t("admin.labels.status.pending"), "#",
-                  class: "btn btn-sm btn-default" %>
-              <% when "started" %>
-                <%= link_to t("admin.labels.status.started"), "#",
-                  class: "btn btn-sm btn-danger" %>
-              <% when "finished" %>
-                <%= link_to t("admin.labels.status.finished"), "#",
+              <% case course_subject.status %>
+              <% when Settings.status.pending_text %>
+                <%= link_to t("admin.subjects.start"),
+                  admin_course_subject_path(course_subject,
+                  {course_subject: {status: Settings.status.started_text}}),
+                  method: :put,
+                  data: {confirm: t("admin.subjects.start_confirm")},
+                  class: "btn btn-success" %>
+              <% when Settings.status.started_text %>
+                <%= link_to t("admin.subjects.finish"),
+                  admin_course_subject_path(course_subject,
+                  {course_subject: {status: Settings.status.finished_text}}),
+                  method: :put,
+                  data: {confirm: t("admin.subjects.finish_confirm")},
+                  class: "btn btn-danger" %>
+              <% when Settings.status.finished_text %>
+                <%= link_to t("admin.subjects.finished"), "#",
                   class: "btn btn-sm btn-danger disabled" %>
               <% end %>
             <% else %>

@@ -8,15 +8,18 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   resources :users
-  resources :subjects
-  resources :courses, only: [:index, :show]
+  resources :courses do
+    resources :subjects
+  end
   resources :user_subjects, only: :update
   namespace :admin do
     resources :users
     resources :subjects
+    resources :user_subjects, only: :update
     resources :courses do
       resource :user_courses, only: [:show, :update]
     end
+    resources :course_subjects
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

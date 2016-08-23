@@ -60,6 +60,7 @@ en:
       add_user_to_course: "Add users to course successfully!"
       report_updated: "Updated report!"
       finish_updated: "Finished subject!"
+      status_update: "Updated status!"
     error:
       login_require: "Please login"
       delete_subject: "Delete subject failed!"
@@ -67,6 +68,7 @@ en:
       login: "Login error"
       destroy_user: "Delete user unsuccessfully!"
       report_updated: "Failed to report!"
+      status_update: "Failed to update status!"
     notice:
       login: "Login error"
       permission_denied: "Permission denied!"
@@ -154,6 +156,11 @@ en:
       action: "Edit/ Delete"
       not_found: "Subject doesn't exist"
       show_title: "Subject detail"
+      start_confirm: "Do you want start this subject?"
+      finish_confirm: "Do you want finish this subject?"
+      start: "Start"
+      finish: "Finish"
+      finished: "Finished"
     courses:
       form:
         start_date: "Start date"
@@ -187,7 +194,7 @@ en:
       select_user_text: "Select user below"
       delete: "Delete"
       edit: "Edit"
-      add_trainees: "Add trainees"
+      assign_users: "Assign users"
     user_courses:
       show:
         title: "Add users to course"

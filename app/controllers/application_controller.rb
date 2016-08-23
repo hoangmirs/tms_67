@@ -26,6 +26,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_admin_and_supervisor
+    unless current_user.admin? || current_user.supervisor?
+      flash[:notice] = t "flash.notice.permission_denied"
+      redirect_to root_url
+    end
+  end
+
   def correct_user
     redirect_to root_url unless current_user? @user
   end

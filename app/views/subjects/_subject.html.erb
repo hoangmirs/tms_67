@@ -1,15 +1,18 @@
+<% user_subject = get_user_subject current_user, subject, course.id %>
 <div class="masonry-item">
   <div class="panel panel-info">
     <div class="panel-heading">
-      <%= render "shared/status_label", status: get_subject_status(subject) %>
+      <%= render "shared/status_label",
+        status: user_subject.status if user_subject %>
       <%= subject.name %>
     </div>
     <div class="panel-body">
       <%= subject.instructions %>
     </div>
     <div class="panel-footer">
-      <% if get_user_subject subject %>
-        <%= link_to subject_path(subject), class: "btn btn-primary" do %>
+      <% if user_subject %>
+        <%= link_to course_subject_path(course, subject),
+          class: "btn btn-primary" do %>
           <i class="glyphicon glyphicon-search"></i>
           <%= t "courses.btnView" %>
         <% end %>

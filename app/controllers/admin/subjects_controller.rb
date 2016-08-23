@@ -1,6 +1,8 @@
 class Admin::SubjectsController < ApplicationController
-  before_action :logged_in_user, :verify_admin
+  before_action :logged_in_user, :verify_admin_and_supervisor
   before_action :load_subject, except: [:index, :new, :create]
+
+  include SubjectsHelper
 
   def index
     @subjects = Subject.paginate page: params[:page]
@@ -29,9 +31,10 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def update
+    session[:return_to] ||= request.referer
     if @subject.update_attributes subject_params
       flash[:success] = t "flash.success.update_subject"
-      redirect_to admin_subjects_path
+      redirect_to session.delete(:return_to)
     else
       render :edit
     end
