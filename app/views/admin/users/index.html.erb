@@ -1,4 +1,9 @@
 <div class="panel-header">
+  <div class="label label-warning">
+    <%= t ".export" %>
+    <%= link_to t(".export_csv"), admin_users_path(format: "csv") %> |
+    <%= link_to t(".export_xls"), admin_users_path(format: "xls") %>
+  </div>
   <span class="pull-right">
     <% unless current_user.trainee? %>
       <%= link_to new_admin_user_path,

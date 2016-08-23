@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Users">
+    <Table>
+      <Row>
+        <Cell>
+          <Data ss:Type="String"><%= t "admin.users.xls.id" %></Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String"><%= t "admin.users.xls.name" %></Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String"><%= t "admin.users.xls.email" %></Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String"><%= t "admin.users.xls.role" %></Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String"><%= t "admin.users.xls.created_at" %></Data>
+        </Cell>
+      </Row>
+    <% @all_users.each do |user| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= user.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= user.role %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= user.created_at %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

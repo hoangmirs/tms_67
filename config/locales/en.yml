@@ -114,6 +114,9 @@ en:
         btn_Delete: "Delete"
         btn_View: "View"
         btn_New: "Create new user"
+        export: "Export to"
+        export_csv: "CSV"
+        export_xls: "Excel"
       new:
         title: "Create new user"
       form:
@@ -124,6 +127,12 @@ en:
         edit_button: "Edit this user"
         send_mail: "Send mail"
         user_course: "%{name}'s courses"
+      xls:
+        id: "ID"
+        name: "Name"
+        email: "Email"
+        role: "Role"
+        created_at: "Created at"
     subjects:
       form:
         submit_button: "Submit"
