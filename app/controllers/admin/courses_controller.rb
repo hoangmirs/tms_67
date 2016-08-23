@@ -33,6 +33,7 @@ class Admin::CoursesController < ApplicationController
         format.json do
           render json: {
             course_id: @course.id,
+            course_path: admin_course_path(@course),
             course_status: @course.status,
             button_text: get_button_text,
             confirm_text: t("admin.courses.course_item.confirm_finish")
@@ -77,7 +78,7 @@ class Admin::CoursesController < ApplicationController
 
   private
   def course_params
-    params.permit :name, :instructions, :status, :start_date,
+    params.require(:course).permit :name, :instructions, :status, :start_date,
       :end_date, course_subjects_attributes: [:id, :subject_id, :course_id,
       :status, :_destroy]
   end

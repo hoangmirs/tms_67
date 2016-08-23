@@ -1,0 +1,53 @@
+<div id="id_course_info_wrapper">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+        <%= t "users.show.current_course_info" %>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#activities" aria-controls="activities" role="tab"
+        data-toggle="tab">
+        <%= t "users.show.activities_list" %>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <div id="id_course_info">
+        <% if @active_course.nil? %>
+          <h2>
+            <%= t "users.show.user_has_no_course" %>
+          </h2>
+        <% else %>
+          <h2>
+            <%= t "users.show.course_info" %>
+          </h2>
+          <%= render "admin/courses/course_item",
+            course: @active_course %>
+
+          <h2>
+            <%= t"users.show.subjects_list" %>
+          </h2>
+          <div id="id_subject_list_wrapper">
+            <div id="id_subjects_list">
+              <% if @active_course.subjects.nil? ||
+                @active_course.subjects.empty? %>
+                <p class="margin_bottom_10px">
+                  <%= t "users.show.course_has_no_subject" %>
+                </p>
+              <% else %>
+                <%= render partial: "subjects_list",
+                  collection: @active_course.subjects, as: "subject" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="activities">
+
+    </div>
+  </div>
+</div>
