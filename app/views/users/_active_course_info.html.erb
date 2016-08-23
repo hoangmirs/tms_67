@@ -47,7 +47,18 @@
       </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="activities">
-
+      <div id="id_activities_wrapper">
+        <h2>
+          <%= t "users.show.activities_list" %>
+        </h2>
+        <% if @activities.any? %>
+          <ul>
+            <%= render @activities %>
+          </ul>
+        <% else %>
+          <%= t "activity.none" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

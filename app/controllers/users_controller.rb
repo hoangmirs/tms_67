@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @active_course = @user.active_course
+    @activities = @user.activities
   end
 
   def edit
