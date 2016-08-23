@@ -1,0 +1,47 @@
+<div id="container-floating">
+  <% if current_user_is_admin? %>
+    <div class="nd5 nds" data-toggle="tooltip" data-placement="left">
+      <%= link_to admin_users_path do %>
+        <p class="create_course"><%= t "users_text" %></p>
+        <p class="letter"><%= t "u_character" %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <% if current_user_is_admin? %>
+    <div class="nd4 nds" data-toggle="tooltip" data-placement="left">
+      <%= link_to new_admin_subject_path do %>
+        <p class="create_course"><%= t "home.add_new_subject" %></p>
+        <p class="letter"><%= t "s_character" %></p>
+      <% end %>
+    </div>
+    <div class="nd3 nds" data-toggle="tooltip" data-placement="left">
+      <%= link_to admin_subjects_path do %>
+        <p class="create_course"><%= t "subject_text" %></p>
+        <p class="letter"><%= t "s_character" %></p>
+      <% end %>
+    </div>
+    <div class="nd2 nds" data-toggle="tooltip" data-placement="left">
+      <%= link_to new_admin_course_path do %>
+        <p class="create_course"><%= t "home.add_new_course" %></p>
+        <p class="letter"><%= t "c_character" %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="nd1 nds" data-toggle="tooltip" data-placement="left">
+    <% if current_user_is_admin? %>
+      <%= link_to admin_courses_path do %>
+        <p class="create_course"><%= t "courses_text" %></p>
+        <p class="letter"><%= t "c_character" %></p>
+      <% end %>
+    <% else %>
+      <%= link_to courses_path do %>
+        <p class="create_course"><%= t "courses_text" %></p>
+        <p class="letter"><%= t "c_character" %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="floating-button" data-toggle="tooltip" data-placement="left">
+    <p class="plus">+</p>
+  </div>
+</div>
