@@ -11,6 +11,20 @@ class UserSubject < ActiveRecord::Base
     reject_if: proc {|attributes| attributes[:user_id].blank? ||
       attributes[:task_id].blank?}
 
+  after_create do
+    content = Settings.activity.content.joined_subject
+    create_user_subject_activity content
+  end
+
+  after_update do
+    if self.status_changed?
+      if self.finished?
+        content = Settings.activity.content.finished_subject
+        create_user_subject_activity content
+      end
+    end
+  end
+
   scope :by_user, ->user{where user_id: user.id}
   scope :by_subject, ->subject{where subject_id: subject.id}
   scope :by_course_subject, ->course_id, subject do
@@ -25,5 +39,11 @@ class UserSubject < ActiveRecord::Base
         self.user_tasks.build user_id: user.id, task_id: task.id
       end
     end
+  end
+
+  private
+  def create_user_subject_activity content
+    user.activities.create target_type: Settings.activity.target_type.subject,
+      target_id: subject.id, content: content
   end
 end

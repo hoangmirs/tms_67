@@ -12,6 +12,18 @@ User.create!(name: "Hoang Mirs",
              password_confirmation: "123456",
              role: 2)
 
+User.create!(name: "Admin",
+             email: "admin@gmail.com",
+             password: "123456",
+             password_confirmation: "123456",
+             role: 2)
+
+User.create!(name: "Trainee",
+             email: "trainee@gmail.com",
+             password: "123456",
+             password_confirmation: "123456",
+             role: 0)
+
 20.times do |n|
   name = Faker::Name.name
   email = "trainee-#{n+1}@gmail.com"

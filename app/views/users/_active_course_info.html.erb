@@ -39,7 +39,8 @@
                 </p>
               <% else %>
                 <%= render partial: "subjects_list",
-                  collection: @active_course.subjects, as: "subject" %>
+                  collection: @active_course.subjects, as: "subject",
+                  locals: {course: @active_course} %>
               <% end %>
             </div>
           </div>

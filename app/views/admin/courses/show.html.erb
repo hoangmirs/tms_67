@@ -18,6 +18,27 @@
 </div>
 <div class="row">
   <div class="col-md-8">
+    <div class="course_action_<%= @course.id %> col-md-8">
+      <% case @course.status %>
+      <% when "pending" %>
+        <%= link_to t("admin.courses.course_item.start_course"), admin_course_path(@course),
+          data: {
+            confirm: t("admin.courses.course_item.confirm_start"),
+            status: Settings.status.started_text
+          },
+          class: "btn btn-success" %>
+      <% when "started" %>
+        <%= link_to t("admin.courses.course_item.finish_course"), admin_course_path(@course),
+          data: {
+            confirm: t("admin.courses.course_item.confirm_finish"),
+            status: Settings.status.finished_text
+          },
+          class: "btn btn-danger" %>
+      <% when "finished" %>
+          <%= button_tag t("admin.courses.course_item.inactive_course"),
+            class: "btn btn-default disabled" %>
+      <% end %>
+    </div>
     <div class="edit-operation">
       <%= link_to t("admin.courses.edit"), edit_admin_course_path(@course),
         class: "btn btn-primary" %>
@@ -25,7 +46,7 @@
         class: "btn btn-danger",
         data: {confirm: t("admin.courses.confirm_delete")} %>
       <%= link_to t("admin.courses.assign_users"),
-        admin_course_user_courses_path(@course), class: "btn btn-success" %>
+        admin_course_user_courses_path(@course), class: "btn btn-warning" %>
     </div>
   </div>
 </div>
