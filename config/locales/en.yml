@@ -28,6 +28,7 @@ en:
   welcome_message: "Welcome to Framgia Training System!"
   login: "Login"
   login_guide: "to start using our system"
+  no_courses: "No course found!"
   home:
     back_to_home: "Back to the home"
     user_list: "All users"
@@ -155,8 +156,8 @@ en:
       list_of_subject: List subject
       create_subject_title: "Create new subject"
       id: "Id"
-      name: "name"
-      infruction: "Infructions"
+      name: "Name"
+      instruction: "Instruction"
       created_at: "Create date"
       delete_subject: "Delete"
       edit_subject: "Edit"
@@ -288,4 +289,4 @@ en:
   task_status:
     finished: "finished"
     unfinished: "unfinished"
-
+  search: "Search"

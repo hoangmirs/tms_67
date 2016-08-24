@@ -3,7 +3,7 @@ class Admin::CoursesController < ApplicationController
   before_action :load_course, only: [:show, :edit, :update, :destroy]
 
   def index
-    @courses = Course.order("created_at DESC")
+    @courses = Course.search(params[:search]).order("created_at DESC")
       .paginate page: params[:page], per_page: Settings.pagination.size
   end
 

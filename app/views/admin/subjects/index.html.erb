@@ -1,12 +1,12 @@
 <h1><%= t "admin.subjects.list_of_subject" %></h1>
-<table class="table table-hover">
-  <thead>
-    <tr class="info">
-      <th><%= t "admin.subjects.id" %></th>
-      <th><%= t "admin.subjects.name" %></th>
-      <th><%= t "admin.subjects.infruction" %></th>
-      <th><%= t "admin.subjects.created_at" %></th>
-      <th><%= t "admin.subjects.action" %></th>
+<table class="table table-hover table-bordered table-striped">
+  <thead class="bg-primary">
+    <tr>
+      <th class="center width_50_px"><%= t "admin.subjects.id" %></th>
+      <th class="center"><%= t "admin.subjects.name" %></th>
+      <th class="center"><%= t "admin.subjects.instruction" %></th>
+      <th class="center width_200_px"><%= t "admin.subjects.created_at" %></th>
+      <th class="center width_150_px"><%= t "admin.subjects.action" %></th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
         <td><%= link_to subject.name, [:admin, subject] %></td>
         <td class = "truncate"><%= subject.instructions %></td>
         <td><%= subject.created_at %></td>
-        <td>
+        <td class="center">
           <%= link_to t("admin.subjects.edit_subject"), edit_admin_subject_path(subject),
             class: "btn btn-primary" %>
           <%= link_to t("admin.subjects.delete_subject"), admin_subject_path(subject),

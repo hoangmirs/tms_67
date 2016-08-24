@@ -30,6 +30,16 @@ class Course < ActiveRecord::Base
     reject_if: proc {|attributes| attributes[:user_id].blank? ||
       attributes[:user_id] == 0}
 
+  class << self
+    def search search
+      if search.present?
+        where("lower(name) LIKE lower(?)", "%#{search}%")
+      else
+        all
+      end
+    end
+  end
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

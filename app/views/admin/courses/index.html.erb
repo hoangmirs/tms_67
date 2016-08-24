@@ -1,8 +1,19 @@
 <%= provide :title, t("admin.courses.all_courses") %>
 <div class="page-header">
   <h1><%= t "admin.courses.all_courses" %></h1>
+  <%= form_tag(admin_courses_path, method: "get",
+    class: "navbar-form navbar-right search_wrapper") do %>
+    <%= search_field_tag :search, nil, class: "form-control",
+      placeholder: t("search") %>
+    <%= submit_tag t("search"), class: "btn btn-primary", :name => nil %>
+  <% end %>
 </div>
-
 <div id="list-courses" class="row">
-  <%= render partial: "course_item", collection: @courses, as: "course" %>
+  <% if @courses.any? %>
+    <%= render partial: "course_item", collection: @courses, as: "course" %>
+  <% else %>
+    <div class="col-md-12 center">
+      <h2><%= t "no_courses" %></h2>
+    </div>
+  <% end %>
 </div>

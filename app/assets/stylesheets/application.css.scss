@@ -206,6 +206,10 @@ input[type="date"] {
   width: 100px;
 }
 
+.width_150_px {
+  width: 150px;
+}
+
 .width_100_per {
   width: 100%;
 }
@@ -717,4 +721,15 @@ table {
   color: #fff;
   font-size: 14px;
   text-align: center;
+}
+
+.search_wrapper{
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+
+  .form-control{
+    width: 80%;
+    margin-right: 10px;
+  }
 }
