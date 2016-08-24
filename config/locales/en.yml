@@ -252,7 +252,7 @@ en:
       pending: "pending"
       started: "started"
       finished: "finished"
-      unactive_subject: "Unactive Subject"
+      inactive: "inactive"
     roles:
       admin: "admin"
       supervisor: "supervisor"
@@ -260,6 +260,7 @@ en:
   activity:
     title: "Activities"
     none: "There are no activities to be shown."
+    deleted: "Deleted object"
     content:
       start_subject: "Start subject \"%{name}\""
       finished_subject: "Finished subject \"%{name}\""
@@ -267,7 +268,7 @@ en:
       finished_course: "Finished course \"%{name}\""
       completed_task: "Completed task \"%{second_name}\" in subject \"%{name}\""
       time: " %{time} ago"
-      unactive_subject: "Unactive Subject"
+      inactive_subject: "Inactive subject"
       joined_subject: "Joined subject \"%{name}\""
       joined_course: "Joined course \"%{name}\""
   subjects:

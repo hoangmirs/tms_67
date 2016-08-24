@@ -7,7 +7,7 @@ class Course < ActiveRecord::Base
 
   has_many :course_subjects, dependent: :destroy
   has_many :subjects, through: :course_subjects
-  has_many :user_courses
+  has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
 
   enum status: {pending: 0, started: 1, finished: 2}
@@ -29,6 +29,10 @@ class Course < ActiveRecord::Base
   accepts_nested_attributes_for :user_courses, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:user_id].blank? ||
       attributes[:user_id] == 0}
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 
   def build_course_subjects subjects_to_add = {}
     Subject.all.each do |subject|

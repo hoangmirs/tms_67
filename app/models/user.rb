@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     user_course.try :course
   end
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

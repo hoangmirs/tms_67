@@ -3,6 +3,7 @@
     <%= link_to activity.user.name, activity.user %>
   <% end %>
   <% contents = activity.content.split "|" %>
-  <%= t contents[0], name: activity.name, second_name: contents[1] %>
+  <% activity_name = activity.name.blank? ? t("activity.deleted") : activity.name %>
+  <%= t contents[0], name: activity_name, second_name: contents[1] %>
   <%= t "activity.content.time", time: time_ago_in_words(activity.created_at) %>
 </li>

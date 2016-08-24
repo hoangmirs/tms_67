@@ -62,6 +62,8 @@ class Admin::CoursesController < ApplicationController
   end
 
   def show
+    @activities = Activity.by_target Settings.activity.target_type.course,
+      @course.id
   end
 
   def destroy

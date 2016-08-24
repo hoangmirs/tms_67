@@ -17,7 +17,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="course_action_<%= @course.id %> col-md-8">
       <% case @course.status %>
       <% when "pending" %>
@@ -51,7 +51,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="row">
       <h2 class="label-name">
         <%= t "admin.courses.description" %>
@@ -90,12 +90,29 @@
                   class: "btn btn-sm btn-danger disabled" %>
               <% end %>
             <% else %>
-              <%= link_to t("admin.labels.status.unactive_subject"), root_url,
+              <%= link_to t("admin.labels.status.inactive_subject"), root_url,
                 class: "btn btn-sm btn-danger disabled" %>
             <% end %>
           </div>
         <% end %>
       </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <%= t "activity.title" %>
+      </div>
+      <div class="panel-body container">
+        <% if @activities.any? %>
+          <%= render partial: "activities/activity",
+            collection: @activities, as: "activity" %>
+        <% else %>
+          <%= t "activity.none" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
