@@ -14,22 +14,24 @@
             <%= image_tag "logo_F.png", class: "img-circle" %>
           <% end %>
         </li>
-        <% if current_user_is_admin? %>
-          <li>
-            <%= link_to t("users_text"), admin_users_path %>
-          </li>
-        <% end %>
-        <li>
+        <% if logged_in? %>
           <% if current_user_is_admin? %>
-            <%= link_to t("courses_text"), admin_courses_path %>
-          <% else %>
-            <%= link_to t("courses_text"), courses_path %>
+            <li>
+              <%= link_to t("users_text"), admin_users_path %>
+            </li>
           <% end %>
-        </li>
-        <% if current_user_is_admin? %>
           <li>
-            <%= link_to t("subject_text"), admin_subjects_path %>
+            <% if current_user_is_admin? %>
+              <%= link_to t("courses_text"), admin_courses_path %>
+            <% else %>
+              <%= link_to t("courses_text"), courses_path %>
+            <% end %>
           </li>
+          <% if current_user_is_admin? %>
+            <li>
+              <%= link_to t("subject_text"), admin_subjects_path %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
       <ul class="nav navbar-nav pull-right">

@@ -71,6 +71,10 @@ h1, h2, h3, h4, h5 {
 
 .login_wrapper {
   padding-top: 14px;
+
+  li > ul{
+    left: -40px;
+  }
 }
 
 h1 {
